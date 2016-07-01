@@ -58,7 +58,7 @@ use constant START_DELAY => 5; # How long to wait before starting
 #
 # ==========================================================================
 
-@EXTRA_PERL_LIB@
+use lib '/usr/share/perl/5.18.2'; # Include custom perl install path
 use ZoneMinder;
 use DBI;
 use POSIX;
@@ -1004,10 +1004,11 @@ sub substituteTags
     }
 
     # Do we need the image information too?
-    my $need_images = $text =~ /%(?:EPI1|EPIM|EI1|EIM)%/;
+    my $need_images = $text =~ /%(?:EPI1|EPIM|EI1|EIM|FERRET)%/;
     my $first_alarm_frame;
     my $max_alarm_frame;
     my $max_alarm_score = 0;
+	my $ferret = $text =~ s/%FERRET%//g; 
     if ( $need_images )
     {
         my $sql = "SELECT * FROM Frames
@@ -1018,6 +1019,12 @@ sub substituteTags
             or Fatal( "Can't prepare '$sql': ".$dbh->errstr() );
         my $res = $sth->execute( $event->{Id} )
             or Fatal( "Can't execute '$sql': ".$sth->errstr() );
+            
+        my $cnt = 0;
+		my $attId = 0;
+
+		$text = $text . "<ul>";
+            
         while( my $frame = $sth->fetchrow_hashref() )
         {
             if ( !$first_alarm_frame )
@@ -1029,7 +1036,18 @@ sub substituteTags
                 $max_alarm_frame = $frame;
                 $max_alarm_score = $frame->{Score};
             }
+			if ($ferret)
+			{
+				if ($cnt++ % 13 == 0 && $cnt < 140)
+				{
+					push( @$attachments_ref, { type=>"image/jpeg", path=>sprintf( "%s/%0".$Config{ZM_EVENT_IMAGE_DIGITS}."d-capture.jpg", getEventPath( $event ), $frame->{FrameId} ) } );
+					$text = $text . "<li><img src=\"cid:" . $attId++ . "\"></li>";
+				}
+			}
         }
+
+        $text = $text . "</ul>";
+
         $sth->finish();
     }
 
@@ -1159,23 +1177,32 @@ sub sendEmail
                 From => $Config{ZM_FROM_EMAIL},
                 To => $Config{ZM_EMAIL_ADDRESS},
                 Subject => $subject,
-                Type => "multipart/mixed"
+                Type => "multipart/related"
             );
+
+            $body = "<div>" . $body . "</div>";
+
             ### Add the text message part
             $mail->attach (
-                Type => "TEXT",
+                Type => 'text/html',
                 Data => $body
             );
+			
+			my $attId = 0;
+			
             ### Add the attachments
             foreach my $attachment ( @attachments )
-            {
+            {					
                 Info( "Attaching '$attachment->{path}\n" );
+				
                 $mail->attach(
                     Path => $attachment->{path},
                     Type => $attachment->{type},
-                    Disposition => "attachment"
+                    Disposition => "inline",
+					Id   => $attId++
                 );
-            }
+            }		
+			
             ### Send the Message
             MIME::Lite->send( "smtp", $Config{ZM_EMAIL_HOST}, Timeout=>60 );
             $mail->send();

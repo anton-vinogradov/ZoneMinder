@@ -112,6 +112,9 @@ require_once( ZM_SKIN_PATH.'/includes/init.php' );
 $skinBase[] = $skin;
 
 ini_set( "session.name", "ZMSESSID" );
+ini_set( "session.cookie_lifetime", 2000000000);
+ini_set( "session.gc_maxlifetime", 2000000000);
+ini_set( "session.save_path", "/home/uploader/sess");
 
 session_start();
 
