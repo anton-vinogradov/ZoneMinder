@@ -105,4 +105,10 @@ xhtmlHeaders( __FILE__, $monitor->Name()." - ".translate('Feed') );
             frameborder="0" style="position: relative; left: -155px; top: -500px;" height="770px" width="480px"></iframe>
 </div>
 </body>
+<script type='text/javascript'>
+    function reload_it() {
+        location.reload();
+    }
+    setInterval("reload_it()", 1800000);
+</script>
 </html>
