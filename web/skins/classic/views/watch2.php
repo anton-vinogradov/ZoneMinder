@@ -75,39 +75,35 @@ noCacheHeaders();
 xhtmlHeaders( __FILE__, $monitor->Name()." - ".translate('Feed') );
 ?>
 <body>
-<div id="pageBlack"
-     style="margin:auto; position:absolute; z-index: 1; background:#000000; width:2000px; height:2000px"></div>
 <div id="page0" style="margin:auto; position:absolute; top: 0px; z-index: 20; left: 50%; margin-left: +350px;">
     <a href="index.php?view=watch2&amp;mid=1" style="font-size: 150px; color:#222222;">&#8635;</a>
 </div>
-<div id="page1" style="margin:auto; position:absolute; top: 0px; z-index: 20; left: 50%; margin-left: -150px;">
+<div id="page1" style="margin:auto; position:absolute; top: 390px; z-index: 20; left: 50%; margin-left: +380px;">
     <a href="index.php?view=watch3&amp;mid=1" style="font-size: 150px; color:#000000;">&#10006;</a>
 </div>
 <div id="page" style="margin:auto; position:absolute; top: -265px; left: -150px; z-index: 2;">
     <?php outputImageStream("liveStream", $streamSrc, reScale($monitor->Width(), 175), reScale($monitor->Height(), 140), $monitor->Name()); ?>
 </div>
-<!--<div id="page3" style="margin:auto; position:absolute; top: 0px; left: 0px; z-index: 18;">-->
-<!--    <table cellpadding=0 cellspacing=0 width=300-->
-<!--           style="border:solid 1px #000000;font-family:Arial;font-size:18px;background-color:#000000">-->
-<!--        <tr>-->
-<!--            <td valign=top style="padding:0;">-->
-<!--                <iframe-->
-<!--                    src="http://rp5.ru/htmla.php?id=7285&lang=ru&um=00001&bg=%23000000&ft=%23ffffff&fc=%23000000&c=%23ffffff&f=Arial&s=24&sc=4"-->
-<!--                    width=100% height=500 frameborder=0 scrolling=no style="margin:0;"></iframe>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</div>-->
-<div id="page4" style="margin:auto; position:absolute; top: 0px; left: 0px; z-index: 18; overflow: hidden">
-    <iframe id="optomaFeed"
-            src="http://www.rp5.ru/%D0%9F%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0_%D0%B2_%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D0%B5"
-            scrolling="no"
-            frameborder="0" style="position: relative; left: -155px; top: -500px;" height="770px" width="480px"></iframe>
+
+<?php
+$output = file_get_contents('http://www.rp5.ru/%D0%9F%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0_%D0%B2_%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D0%B5');
+$output = str_replace("=\"/", "=\"http://rp5.ru/", $output);
+$output = str_replace('style="display: none;"', '', $output);
+$pattern = '/(\<table id\=\"forecastTable\_3(.+?)\/table\>)/is';
+preg_match($pattern, $output, $output);
+
+header('Content-Type: text/html; charset=utf-8');
+?>
+
+<div id="page4" style="margin:auto; position:absolute; top: -7px; left: -95px; z-index: 18; overflow: hidden; width: 485px">
+    <?php
+    echo $output[0];
+    ?>
 </div>
 </body>
 <script type='text/javascript'>
     function reload_it() {
-        location.reload();
+        window.location.href='index.php?view=watch2&mid=1&rando=<?php echo rand(5, 999999); ?>';
     }
     setInterval("reload_it()", 1800000);
 </script>
