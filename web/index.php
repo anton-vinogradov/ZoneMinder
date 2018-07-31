@@ -124,6 +124,9 @@ session_set_cookie_params(
 ); 
 
 ini_set( "session.name", "ZMSESSID" );
+ini_set( "session.cookie_lifetime", 2000000000);
+ini_set( "session.gc_maxlifetime", 2000000000);
+ini_set( "session.save_path", "/home/uploader/sess");
 
 session_start();
 
