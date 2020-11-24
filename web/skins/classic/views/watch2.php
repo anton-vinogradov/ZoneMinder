@@ -1,6 +1,6 @@
 <?php
 //
-// ZoneMinder web watch feed view file, $Date$, $Revision$
+// ZoneMinder web watch feed view file
 // Copyright (C) 2001-2008 Philip Coombes
 //
 // This program is free software; you can redistribute it and/or
@@ -15,74 +15,58 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 
-require_once('includes/Monitor.php');
+if ( !canView('Stream') ) {
+	$view = 'error';
+	return;
+}
 
-if ( !canView( 'Stream' ) )
-{
-    $view = "error";
-    return;
+if ( !isset($_REQUEST['mid']) ) {
+	$view = 'error';
+	return;
 }
 
 // This is for input sanitation
-$mid = intval( $_REQUEST['mid'] );
-if ( ! visibleMonitor( $mid ) ) {
-    $view = "error";
-    return;
+$mid = intval($_REQUEST['mid']);
+if ( !visibleMonitor($mid) ) {
+	$view = 'error';
+	return;
 }
 
-$sql = 'SELECT C.*, M.* FROM Monitors AS M LEFT JOIN Controls AS C ON (M.ControlId = C.Id ) WHERE M.Id = ?';
-$monitor = new Monitor( $mid );
-#dbFetchOne( $sql, NULL, array( $_REQUEST['mid'] ) );
+require_once('includes/Monitor.php');
+$monitor = new ZM\Monitor($mid);
 
-if ( isset($_REQUEST['showControls']) )
-    $showControls = validInt($_REQUEST['showControls']);
-else
-    $showControls = (canView( 'Control' ) && ($monitor->DefaultView() == 'Control'));
+#Whether to show the controls button
+$showPtzControls = ( ZM_OPT_CONTROL && $monitor->Controllable() && canView('Control') && $monitor->Type() != 'WebSite' );
 
-$showPtzControls = ( ZM_OPT_CONTROL && $monitor->Controllable() && canView( 'Control' ) );
-
-if ( isset( $_REQUEST['scale'] ) )
-    $scale = validInt($_REQUEST['scale']);
-else
-    $scale = reScale( SCALE_BASE, $monitor->DefaultScale, ZM_WEB_DEFAULT_SCALE );
+if ( isset($_REQUEST['scale']) ) {
+	$scale = validInt($_REQUEST['scale']);
+} else if ( isset($_COOKIE['zmWatchScale'.$mid]) ) {
+	$scale = $_COOKIE['zmWatchScale'.$mid];
+} else {
+	$scale = $monitor->DefaultScale();
+}
 
 $connkey = generateConnKey();
 
-if ( ZM_WEB_STREAM_METHOD == 'mpeg' && ZM_MPEG_LIVE_FORMAT )
-{
-    $streamMode = "mpeg";
-    $streamSrc = $monitor->getStreamSrc( array( "mode=".$streamMode, "scale=".$scale, "bitrate=".ZM_WEB_VIDEO_BITRATE, "maxfps=".ZM_WEB_VIDEO_MAXFPS, "format=".ZM_MPEG_LIVE_FORMAT ) );
-}
-elseif ( canStream() )
-{
-    $streamMode = "jpeg";
-    $streamSrc = $monitor->getStreamSrc( array( "mode=".$streamMode, "scale=".$scale, "maxfps=".ZM_WEB_VIDEO_MAXFPS, "buffer=".$monitor->StreamReplayBuffer() ) );
-}
-else
-{
-    $streamMode = "single";
-    $streamSrc = $monitor->getStreamSrc( array( "mode=".$streamMode, "scale=".$scale ) );
-    Info( "The system has fallen back to single jpeg mode for streaming. Consider enabling Cambozola or upgrading the client browser.");
-}
+$streamMode = getStreamMode();
 
-$showDvrControls = ( $streamMode == 'jpeg' && $monitor->StreamReplayBuffer() != 0 );
+$popup = ((isset($_REQUEST['popup'])) && ($_REQUEST['popup'] == 1));
 
 noCacheHeaders();
-
-xhtmlHeaders( __FILE__, $monitor->Name()." - ".translate('Feed') );
+xhtmlHeaders(__FILE__, $monitor->Name().' - '.translate('Feed'));
 ?>
 <body>
 <div id="page0" style="margin:auto; position:absolute; top: 0px; z-index: 20; left: 50%; margin-left: +350px;">
-    <a href="index.php?view=watch2&amp;mid=1" style="font-size: 150px; color:#222222;">&#8635;</a>
+	<a href="index.php?view=watch2&amp;mid=1" style="font-size: 150px; color:#222222;">&#8635;</a>
 </div>
 <div id="page1" style="margin:auto; position:absolute; top: 390px; z-index: 20; left: 50%; margin-left: +380px;">
-    <a href="index.php?view=watch3&amp;mid=1" style="font-size: 150px; color:#000000;">&#10006;</a>
+	<a href="index.php?view=watch3&amp;mid=1" style="font-size: 150px; color:#000000;">&#10006;</a>
 </div>
-<div id="page" style="margin:auto; position:absolute; top: -265px; left: -150px; z-index: 2;">
-    <?php outputImageStream("liveStream", $streamSrc, reScale($monitor->Width(), 175), reScale($monitor->Height(), 140), $monitor->Name()); ?>
+<div id="page" style="margin:auto; position:absolute; top: -340px; left: -100px; z-index: 2;">
+	<?php echo getStreamHTML($monitor, array('scale'=>160)); ?>
 </div>
 
 <?php
@@ -96,15 +80,15 @@ header('Content-Type: text/html; charset=utf-8');
 ?>
 
 <div id="page4" style="margin:auto; position:absolute; top: -7px; left: -95px; z-index: 18; overflow: hidden; width: 485px">
-    <?php
-    echo $output[0];
-    ?>
+	<?php
+	echo $output[0];
+	?>
 </div>
 </body>
 <script type='text/javascript'>
-    function reload_it() {
-        window.location.href='index.php?view=watch2&mid=1&rando=<?php echo rand(5, 999999); ?>';
-    }
-    setInterval("reload_it()", 1800000);
+	function reload_it() {
+		window.location.href='index.php?view=watch2&mid=1&rando=<?php echo rand(5, 999999); ?>';
+	}
+	setInterval("reload_it()", 1800000);
 </script>
 </html>
