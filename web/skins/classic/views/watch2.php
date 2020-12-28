@@ -73,13 +73,13 @@ xhtmlHeaders(__FILE__, $monitor->Name().' - '.translate('Feed'));
 $output = file_get_contents('http://www.rp5.ru/%D0%9F%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0_%D0%B2_%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D0%B5');
 $output = str_replace("=\"/", "=\"http://rp5.ru/", $output);
 $output = str_replace('style="display: none;"', '', $output);
-$pattern = '/(\<table id\=\"forecastTable\_3(.+?)\/table\>)/is';
+$pattern = '/(\<table id\=\"forecastTable\_1\_3(.+?)\/table\>)/is';
 preg_match($pattern, $output, $output);
 
 header('Content-Type: text/html; charset=utf-8');
 ?>
 
-<div id="page4" style="margin:auto; position:absolute; top: -7px; left: -95px; z-index: 18; overflow: hidden; width: 485px">
+<div id="page4" style="margin:auto; position:absolute; top: -7px; left: -65px; z-index: 18; overflow: hidden; width: 485px">
 	<?php
 	echo $output[0];
 	?>
