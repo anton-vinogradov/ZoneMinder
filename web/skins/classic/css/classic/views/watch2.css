@@ -3063,13 +3063,13 @@ td.td-center {
 
 /*Ð¯Ð’Ð›Ð•ÐÐ˜Ð¯ ÐŸÐžÐ“ÐžÐ”Ð«*/
 /*Ð¤Ñ€Ð°ÐºÑ†Ð¸Ð¸*/
-.wp_fog, .wp_haze, .wp_fog_danger { background-image: url("http://rp5.ruimages/sprites/sprite_wp_fr_v1.png"); text-align:center; display: inline-block;}
+.wp_fog, .wp_haze, .wp_fog_danger { background-image: url("http://rp5.ru/images/sprites/sprite_wp_fr_v1.png"); text-align:center; display: inline-block;}
 .wp_fog {background-position: 0 1px; background-repeat: no-repeat; width: 35px; line-height: 27px;}
 .wp_haze {background-position: -36px 0 ; width: 35px; height: 22px}
 .wp_fog_danger {background-position: -72px 1px;  background-repeat: no-repeat; width: 35px; line-height: 27px;}
 
 /*Ð›Ð¸Ð²Ð½ÐµÐ²Ñ‹Ðµ Ð¾ÑÐ°Ð´ÐºÐ¸ Ð¿Ð¾ ÑÑ‚Ð°Ñ€Ñ‹Ð¼ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°Ð¼*/
-.wp_o2d9_left, .wp_o2d9, .wp_o3d1, .wp_o3d10, .wp_o3d1_left, .wp_o3d10_left, .wp_o2d8_left, .wp_o2d8, .wp_o2d5_left, .wp_o2d5, .wp_o2d6, .wp_o2d6_left, .wp_o2d7_left, .wp_o2d7, .wp_o3d2, .wp_o3d2_left, .wp_o3d7_left, .wp_o3d7, .wp_o3d8, .wp_o3d8_left, .wp_o3d9_left, .wp_o3d9, .wp_o3d6_left, .wp_o3d6, .wp_o3d3_left, .wp_o3d3, .wp_o3d4, .wp_o3d4_left, .wp_o3d5_left, .wp_o3d5, .wp_o2d4_left, .wp_o2d4, .wp_o1d4, .wp_o1d3_left, .wp_o1d4_left, .wp_o1d5, .wp_o1d6, .wp_o1d5_left, .wp_o1d3, .wp_o1d2_left, .wp_o1d1, .wp_0_left, .wp_o1d10, .wp_o1d10_left, .wp_o1d2, .wp_o1d1_left, .wp_o1d6_left, .wp_o1d7, .wp_o2d1_left, .wp_o2d10_left, .wp_o2d2, .wp_o2d2_left, .wp_o2d3_left, .wp_o2d3, .wp_o2d10, .wp_o2d1, .wp_o1d8, .wp_o1d7_left, .wp_o1d8_left, .wp_o1d9, .wp_o1d9_left, .wp_0 { background-image: url("http://rp5.ruimages/sprites/sprite_wp_pr_conv.png"); text-align:center; display: inline-block;}
+.wp_o2d9_left, .wp_o2d9, .wp_o3d1, .wp_o3d10, .wp_o3d1_left, .wp_o3d10_left, .wp_o2d8_left, .wp_o2d8, .wp_o2d5_left, .wp_o2d5, .wp_o2d6, .wp_o2d6_left, .wp_o2d7_left, .wp_o2d7, .wp_o3d2, .wp_o3d2_left, .wp_o3d7_left, .wp_o3d7, .wp_o3d8, .wp_o3d8_left, .wp_o3d9_left, .wp_o3d9, .wp_o3d6_left, .wp_o3d6, .wp_o3d3_left, .wp_o3d3, .wp_o3d4, .wp_o3d4_left, .wp_o3d5_left, .wp_o3d5, .wp_o2d4_left, .wp_o2d4, .wp_o1d4, .wp_o1d3_left, .wp_o1d4_left, .wp_o1d5, .wp_o1d6, .wp_o1d5_left, .wp_o1d3, .wp_o1d2_left, .wp_o1d1, .wp_0_left, .wp_o1d10, .wp_o1d10_left, .wp_o1d2, .wp_o1d1_left, .wp_o1d6_left, .wp_o1d7, .wp_o2d1_left, .wp_o2d10_left, .wp_o2d2, .wp_o2d2_left, .wp_o2d3_left, .wp_o2d3, .wp_o2d10, .wp_o2d1, .wp_o1d8, .wp_o1d7_left, .wp_o1d8_left, .wp_o1d9, .wp_o1d9_left, .wp_0 { background-image: url("http://rp5.ru/images/sprites/sprite_wp_pr_conv.png"); text-align:center; display: inline-block;}
 .wp_o2d9_left {background-position: 0 0 ; width: 17px; height: 27px}
 .wp_o2d9 {background-position: -18px 0 ; width: 17px; height: 27px}
 .wp_o3d1 {background-position: -36px 0 ; width: 17px; height: 27px}
@@ -3133,7 +3133,7 @@ td.td-center {
 .wp_o1d9_left {background-position: -144px -108px ; width: 17px; height: 27px}
 .wp_0 {background-position: -162px -108px ; width: 17px; height: 27px}
 
-.wp_o3d3d, .wp_o3d3d_left, .wp_o3d4d, .wp_o3d4d_left, .wp_o3d2d_left, .wp_o3d2d, .wp_o3d10d_left, .wp_o3d1d, .wp_o3d1d_left, .wp_o3d5d, .wp_o3d5d_left, .wp_o3d8d_left, .wp_o3d9d, .wp_o3d9d_left, .wp_o3d8d, .wp_o3d7d_left, .wp_o3d6d, .wp_o3d6d_left, .wp_o3d7d, .wp_o3d10d, .wp_o1d9d_left, .wp_o1d3d, .wp_o1d3d_left, .wp_o1d4d, .wp_o1d2d_left, .wp_o1d2d, .wp_o1d10d_left, .wp_o1d1d, .wp_o1d1d_left, .wp_o1d4d_left, .wp_o1d5d, .wp_o1d8d, .wp_o1d8d_left, .wp_o1d9d, .wp_o1d7d_left, .wp_o1d7d, .wp_o1d5d_left, .wp_o1d6d, .wp_o1d6d_left, .wp_o1d10d { background-image: url("http://rp5.ruimages/sprites/sprite_wp_pr_dyn.png"); text-align:center; display: inline-block;}
+.wp_o3d3d, .wp_o3d3d_left, .wp_o3d4d, .wp_o3d4d_left, .wp_o3d2d_left, .wp_o3d2d, .wp_o3d10d_left, .wp_o3d1d, .wp_o3d1d_left, .wp_o3d5d, .wp_o3d5d_left, .wp_o3d8d_left, .wp_o3d9d, .wp_o3d9d_left, .wp_o3d8d, .wp_o3d7d_left, .wp_o3d6d, .wp_o3d6d_left, .wp_o3d7d, .wp_o3d10d, .wp_o1d9d_left, .wp_o1d3d, .wp_o1d3d_left, .wp_o1d4d, .wp_o1d2d_left, .wp_o1d2d, .wp_o1d10d_left, .wp_o1d1d, .wp_o1d1d_left, .wp_o1d4d_left, .wp_o1d5d, .wp_o1d8d, .wp_o1d8d_left, .wp_o1d9d, .wp_o1d7d_left, .wp_o1d7d, .wp_o1d5d_left, .wp_o1d6d, .wp_o1d6d_left, .wp_o1d10d { background-image: url("http://rp5.ru/images/sprites/sprite_wp_pr_dyn.png"); text-align:center; display: inline-block;}
 .wp_o3d3d {background-position: 0 0 ; width: 17px; height: 27px}
 .wp_o3d3d_left {background-position: -18px 0 ; width: 17px; height: 27px}
 .wp_o3d4d {background-position: -36px 0 ; width: 17px; height: 27px}
@@ -3177,7 +3177,7 @@ td.td-center {
 
 
 /*ÐžÐ¿Ð°ÑÐ½Ñ‹Ðµ Ð¾ÑÐ°Ð´ÐºÐ¸ - Ð·Ð°Ð¼ÐµÑ€Ð·Ð°ÑŽÑ‰Ð¸Ð¹ Ð´Ð¾Ð¶Ð´ÑŒ*/
-.wp_o4d6_danger, .wp_o4d7_danger, .wp_o4d8_danger, .wp_o4d9_danger, .wp_o4d5_danger, .wp_o4d4_danger, .wp_o4d1_danger, .wp_o4d2_danger, .wp_o4d3_danger, .wp_o4d10_danger { background-image: url("http://rp5.ruimages/sprites/sprite_wp_danger.png"); text-align:center; display: inline-block;}
+.wp_o4d6_danger, .wp_o4d7_danger, .wp_o4d8_danger, .wp_o4d9_danger, .wp_o4d5_danger, .wp_o4d4_danger, .wp_o4d1_danger, .wp_o4d2_danger, .wp_o4d3_danger, .wp_o4d10_danger { background-image: url("http://rp5.ru/images/sprites/sprite_wp_danger.png"); text-align:center; display: inline-block;}
 .wp_o4d6_danger {background-position: 0 0 ; width: 17px; height: 27px}
 .wp_o4d7_danger {background-position: -18px 0 ; width: 17px; height: 27px}
 .wp_o4d8_danger {background-position: -36px 0 ; width: 17px; height: 27px}
@@ -3189,23 +3189,23 @@ td.td-center {
 .wp_o4d3_danger {background-position: -54px -27px ; width: 17px; height: 27px}
 .wp_o4d10_danger {background-position: -72px -27px ; width: 17px; height: 27px}
 
-.wp_o3d9_strong, .wp_o3d10_strong, .wp_o1d9_strong, .wp_o1d10_strong { background-image: url("http://rp5.ruimages/sprites/sprite_wp_pr_conv_strong.png"); text-align:center; display: inline-block;}
+.wp_o3d9_strong, .wp_o3d10_strong, .wp_o1d9_strong, .wp_o1d10_strong { background-image: url("http://rp5.ru/images/sprites/sprite_wp_pr_conv_strong.png"); text-align:center; display: inline-block;}
 .wp_o3d9_strong {background-position: 0 0 ; width: 17px; height: 27px}
 .wp_o3d10_strong {background-position: -18px 0 ; width: 17px; height: 27px}
 .wp_o1d9_strong {background-position: -36px 0 ; width: 17px; height: 27px}
 .wp_o1d10_strong {background-position: -54px 0 ; width: 17px; height: 27px}
 
-.wp_o3d9d_strong, .wp_o3d10d_strong, .wp_o1d9d_strong, .wp_o1d10d_strong { background-image: url("http://rp5.ruimages/sprites/sprite_wp_pr_dyn_strong.png"); text-align:center; display: inline-block;}
+.wp_o3d9d_strong, .wp_o3d10d_strong, .wp_o1d9d_strong, .wp_o1d10d_strong { background-image: url("http://rp5.ru/images/sprites/sprite_wp_pr_dyn_strong.png"); text-align:center; display: inline-block;}
 .wp_o3d9d_strong {background-position: 0 0 ; width: 17px; height: 27px}
 .wp_o3d10d_strong {background-position: -18px 0 ; width: 17px; height: 27px}
 .wp_o1d9d_strong {background-position: -36px 0 ; width: 17px; height: 27px}
 .wp_o1d10d_strong {background-position: -54px 0 ; width: 17px; height: 27px}
 
-.wp_o2d9_strong, .wp_o2d10_strong { background-image: url("http://rp5.ruimages/sprites/sprite_wp_pr_mix_strong.png"); text-align:center; display: inline-block;}
+.wp_o2d9_strong, .wp_o2d10_strong { background-image: url("http://rp5.ru/images/sprites/sprite_wp_pr_mix_strong.png"); text-align:center; display: inline-block;}
 .wp_o2d9_strong {background-position: 0 0 ; width: 17px; height: 27px}
 .wp_o2d10_strong {background-position: -18px 0 ; width: 17px; height: 27px}
 
-.knopka_right_blue, .knopka_right_gray, .vertical_grad_blue, .vertical_grad_gray, .knopka_right-00_gray, .knopka_right-00_blue, .knopka_left-00_gray, .knopka_left_blue, .knopka_left_gray, .knopka_left-00_blue { background-image: url("http://rp5.ruimages/sprites/sprite_fc_selector_borders_1.png"); text-align:center; display: inline-block; }
+.knopka_right_blue, .knopka_right_gray, .vertical_grad_blue, .vertical_grad_gray, .knopka_right-00_gray, .knopka_right-00_blue, .knopka_left-00_gray, .knopka_left_blue, .knopka_left_gray, .knopka_left-00_blue { background-image: url("http://rp5.ru/images/sprites/sprite_fc_selector_borders_1.png"); text-align:center; display: inline-block; }
 .knopka_right_blue {background-position: 0 0 ; width: 22px; height: 35px}
 .knopka_right_gray {background-position: -27px 0 ; width: 22px; height: 35px}
 .vertical_grad_blue {background-position: -54px 0 ; width: 1px; height: 35px}
