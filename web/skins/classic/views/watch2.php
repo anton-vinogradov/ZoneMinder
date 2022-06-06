@@ -67,7 +67,7 @@ xhtmlHeaders(__FILE__, $monitor->Name().' - '.translate('Feed'));
 	<a href="index.php?view=watch3&amp;mid=3" style="font-size: 150px; color:#000000;">&#10006;</a>
 </div>
 <div id="page" style="margin:auto; position:absolute; top: 0px; left: 190px; z-index: 2;">
-	<?php echo getStreamHTML($monitor, array('scale'=>115, 'mode'=>'single')); ?>
+	<?php echo getStreamHTML($monitor, array('scale'=>115)); ?>
 </div>
 
 <?php
