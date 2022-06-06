@@ -19,20 +19,20 @@
 //
 
 if ( !canView('Stream') ) {
-	$view = 'error';
-	return;
+  $view = 'error';
+  return;
 }
 
 if ( !isset($_REQUEST['mid']) ) {
-	$view = 'error';
-	return;
+  $view = 'error';
+  return;
 }
 
 // This is for input sanitation
 $mid = intval($_REQUEST['mid']);
 if ( !visibleMonitor($mid) ) {
-	$view = 'error';
-	return;
+  $view = 'error';
+  return;
 }
 
 require_once('includes/Monitor.php');
@@ -42,11 +42,12 @@ $monitor = new ZM\Monitor($mid);
 $showPtzControls = ( ZM_OPT_CONTROL && $monitor->Controllable() && canView('Control') && $monitor->Type() != 'WebSite' );
 
 if ( isset($_REQUEST['scale']) ) {
-	$scale = validInt($_REQUEST['scale']);
+  $scale = validInt($_REQUEST['scale']);
 } else if ( isset($_COOKIE['zmWatchScale'.$mid]) ) {
-	$scale = $_COOKIE['zmWatchScale'.$mid];
+  $scale = $_COOKIE['zmWatchScale'.$mid];
+  if ($scale == 'auto') $scale = '0';
 } else {
-	$scale = $monitor->DefaultScale();
+  $scale = $monitor->DefaultScale();
 }
 
 $connkey = generateConnKey();
@@ -66,7 +67,7 @@ xhtmlHeaders(__FILE__, $monitor->Name().' - '.translate('Feed'));
 	<a href="index.php?view=watch3&amp;mid=1" style="font-size: 150px; color:#000000;">&#10006;</a>
 </div>
 <div id="page" style="margin:auto; position:absolute; top: 0px; left: 190px; z-index: 2;">
-	<?php echo getStreamHTML($monitor, array('scale'=>115)); ?>
+	<?php echo getStreamHTML($monitor, array('scale'=>115, 'mode'=>'single')); ?>
 </div>
 
 <?php
