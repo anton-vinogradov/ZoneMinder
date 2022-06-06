@@ -61,10 +61,10 @@ xhtmlHeaders(__FILE__, $monitor->Name().' - '.translate('Feed'));
 ?>
 <body>
 <div id="page0" style="margin:auto; position:absolute; top: 0px; z-index: 20; left: 50%; margin-left: +350px;">
-	<a href="index.php?view=watch2&amp;mid=3" style="font-size: 150px; color:#222222;">&#8635;</a>
+	<a href="index.php?view=watch2&amp;mid=<?php echo $mid;?>" style="font-size: 150px; color:#222222;">&#8635;</a>
 </div>
 <div id="page1" style="margin:auto; position:absolute; top: 390px; z-index: 20; left: 50%; margin-left: +380px;">
-	<a href="index.php?view=watch3&amp;mid=3" style="font-size: 150px; color:#000000;">&#10006;</a>
+	<a href="index.php?view=watch3&amp;mid=<?php echo $mid;?>" style="font-size: 150px; color:#000000;">&#10006;</a>
 </div>
 <div id="page" style="margin:auto; position:absolute; top: 0px; left: 190px; z-index: 2;">
 	<?php echo getStreamHTML($monitor, array('scale'=>115)); ?>
@@ -88,7 +88,7 @@ header('Content-Type: text/html; charset=utf-8');
 </body>
 <script type='text/javascript'>
 	function reload_it() {
-		window.location.href='index.php?view=watch2&mid=1&rando=<?php echo rand(5, 999999); ?>';
+		window.location.href='index.php?view=watch2&mid=<?php echo $mid;?>&rando=<?php echo rand(5, 999999); ?>';
 	}
 	setInterval("reload_it()", 1800000);
 </script>
