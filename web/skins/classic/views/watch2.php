@@ -61,10 +61,10 @@ xhtmlHeaders(__FILE__, $monitor->Name().' - '.translate('Feed'));
 ?>
 <body>
 <div id="page0" style="margin:auto; position:absolute; top: 0px; z-index: 20; left: 50%; margin-left: +350px;">
-	<a href="index.php?view=watch2&amp;mid=1" style="font-size: 150px; color:#222222;">&#8635;</a>
+	<a href="index.php?view=watch2&amp;mid=3" style="font-size: 150px; color:#222222;">&#8635;</a>
 </div>
 <div id="page1" style="margin:auto; position:absolute; top: 390px; z-index: 20; left: 50%; margin-left: +380px;">
-	<a href="index.php?view=watch3&amp;mid=1" style="font-size: 150px; color:#000000;">&#10006;</a>
+	<a href="index.php?view=watch3&amp;mid=3" style="font-size: 150px; color:#000000;">&#10006;</a>
 </div>
 <div id="page" style="margin:auto; position:absolute; top: 0px; left: 190px; z-index: 2;">
 	<?php echo getStreamHTML($monitor, array('scale'=>115, 'mode'=>'single')); ?>
